@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>{{ site.title }}</title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" />
-    <link rel="stylesheet" href="assets/css/main.css">
-    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"></script>
-  </head>
+  {% include head.html %}
   <body>
+
     {{ content }}
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- <script src="/assets/vendor/jquery/jquery.slim.min.js"></script>
+    <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   </body>
 </html>
