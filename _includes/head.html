@@ -1,15 +1,21 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="{{ site.description }}">
-  <meta name="author" content="{{ site.author }}">
-  <title>{{ site.title }}</title>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" />
-  <link rel="stylesheet" href="assets/css/main.css">
-  <!-- Bootstrap core CSS -->
-  <!-- <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="Robots" content="index, follow">
 
-  <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"></script>
+  {%- seo -%}
+
+  {% for css in site.css-baseurl %}
+  <link rel="stylesheet" href="{{ css }}">
+  {% endfor %}
+
+  {% for js in site.js-baseurl %}
+  <script type="text/javascript" src="{{ js }}"></script>
+  {% endfor %}
+
 </head>

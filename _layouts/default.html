@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  {% include head.html %}
-  <body>
-
+  {% include_cached head.html %}
+  <body class="d-flex flex-column h-100">
+    {% include_cached navbar.html %}
+    {% include_cached about.html %}
+    {% include_cached map-legends.html %}
+    {% include_cached contact.html %}
     {{ content }}
-
-    <!-- Bootstrap core JavaScript -->
-    <!-- <script src="/assets/vendor/jquery/jquery.slim.min.js"></script>
-    <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script> -->
-    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    {% include_cached footer.html %}
   </body>
 </html>

@@ -1,12 +1,36 @@
-<div id="map"></div>
+<div id="container">
+  <div id="map"></div>
+</div>
 <script>
-  
-  var coords = [0, 0]; // the geographic center of our map
-  var zoomLevel = 3; // the map scale. See: http://wiki.openstreetmap.org/wiki/Zoom_levels
-  var map = L.map('map').setView(coords, zoomLevel);
-
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
+  var OSM = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
     attribution: 'Website theme by <a href="https://lerryws.xyz/">wslerry</a> | &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-  }).addTo(map);
+  });
+
+  var coords = [0, 0]; // the geographic center of our map
+  var zoomLevel = 2; // the map scale
+  var map = L.map('map', {
+    center: coords,
+    zoom: zoomLevel,
+    layers: OSM
+  });
+
+  var mydata= L.geoJson(null);
+
+  $.getJSON("/assets/cities.geojson", function(data){mydata.addData(data);});
+
+  // load basemap
+  var baseMaps = {
+    "OpenStreetMap": OSM,
+  };
+
+  // load overlay
+  var overlay = {
+    "Cities": mydata,
+  };
+
+L.control.layers(baseMaps, overlay, {collapsed: true}).addTo(map);
 
 </script>
+{% for js in site.js-baseurl %}
+<script type="text/javascript" src="{{ js }}"></script>
+{% endfor %}

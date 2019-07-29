@@ -1,18 +1,35 @@
-title: Jekyll + Leaflet
+title: web-mapping-leaflet
 author: Lerry W.S # change this to your name
 email:
 description: >- # this means to ignore newlines until "baseurl:"
-  Jekyll + leaflet
+  A template for web-mapping website build in Jekyll + leaflet
 baseurl: ""
 url: ""
 port:
 
-# plugins:
-#   - jekyll-feed
+markdown: kramdown
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-include-cache
 
 exclude : [
   "Gemfile",
   "Gemfile.lock",
   "README.md",
-  "LICENSE.txt"
+  "LICENSE.txt",
+  web-mapping-leaflet.gemspec,
   ]
+
+css-baseurl:
+  - "/assets/css/main.css"
+  - "/assets/vendor/bootstrap/css/bootstrap.min.css"
+  - "/assets/vendor/favicon/css/all.min.css"
+  - "/assets/vendor/leaflet/leaflet.css"
+
+js-baseurl:
+  - "/assets/vendor/leaflet/leaflet.js"
+  - "/assets/vendor/jquery/jquery.slim.min.js"
+  - "/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"
+  - "/assets/vendor/favicon/js/all.min.js"

@@ -1,13 +1,46 @@
-html, body {
-  width: 100%;
+$background-color : #f8f9fa ;
+
+html, body, #container {
   height: 100%;
-  margin: 0;
-  padding: 0;
-      }
+  width: 100%;
+  overflow: hidden;
+}
+
+body {
+  padding-top: 55px;
+}
 
 #map {
   width: inherit;
   height: inherit;
-  margin:0;
-  padding: 0;
+}
+
+h1, h2, h3, h4, h5 ,h6 {
+  font-weight: bold;
+}
+
+p, ul, ol, pre, blockquote {
+  margin-bottom: 1em;
+}
+
+.navbar-light .navbar-brand {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.navbar-light .bg-light {
+    background-color: $background-color !important;
+}
+
+.footer {
+  background-color: $background-color !important;;
+}
+
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.footer p {
+  font-size: 11px;
 }
