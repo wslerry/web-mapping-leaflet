@@ -11,7 +11,7 @@
   {%- seo -%}
 
   {% for css in site.css-baseurl %}
-  <link rel="stylesheet" href="{{ css }}">
+  <link rel="stylesheet" href="{{ css | absolute_url }}">
   {% endfor %}
 
   {% for js in site.js-baseurl %}
