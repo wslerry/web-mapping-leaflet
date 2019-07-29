@@ -3,7 +3,7 @@ author: Lerry W.S # change this to your name
 email:
 description: >- # this means to ignore newlines until "baseurl:"
   A template for web-mapping website build in Jekyll + leaflet
-baseurl: "web-mapping-leaflet"
+baseurl: "/web-mapping-leaflet"
 url: "https://wslerry.github.io"
 
 markdown: kramdown
