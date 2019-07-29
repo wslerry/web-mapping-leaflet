@@ -11,7 +11,7 @@
   {%- seo -%}
 
   {% for css in site.css-baseurl %}
-  <link rel="stylesheet" href="{{ css | prepend:site.baseurl  }}">
+  <link rel="stylesheet" href="{{ css | append: site.github.build_revision | relative_url }}">
   {% endfor %}
 
   {% for js in site.js-baseurl %}
