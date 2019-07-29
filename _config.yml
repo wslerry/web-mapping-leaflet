@@ -5,7 +5,6 @@ description: >- # this means to ignore newlines until "baseurl:"
   A template for web-mapping website build in Jekyll + leaflet
 baseurl: ""
 url: ""
-port:
 
 markdown: kramdown
 

@@ -7,10 +7,11 @@ html, body, #container {
 }
 
 body {
-  padding-top: 70px;
+  padding-top: 60px;
 }
 
 #map {
+  padding-top: 80px;
   width: inherit;
   height: inherit;
 }
@@ -22,6 +23,15 @@ h1, h2, h3, h4, h5 ,h6 {
 p, ul, ol, pre, blockquote {
   margin-bottom: 1em;
 }
+
+.navbar .navbar-light {
+ max-height: 80px;
+}
+
+.navbar-light .navbar-toggler-icon{
+  font-size: 15px !important;
+}
+
 
 .navbar-light .navbar-brand {
   font-weight: bold;
@@ -45,9 +55,6 @@ p, ul, ol, pre, blockquote {
   font-size: 11px;
 }
 
-.pb-3, .py-3 {
-
-}
 
 @import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css";
 @import "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css";
