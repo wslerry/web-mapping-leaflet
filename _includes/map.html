@@ -3,7 +3,7 @@
 </div>
 <script>
   var OSM = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
-    attribution: 'Website theme by <a href="https://lerryws.xyz/">wslerry</a> | &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
   });
 
   var coords = [0, 0]; // the geographic center of our map
@@ -31,6 +31,3 @@
 L.control.layers(baseMaps, overlay, {collapsed: true}).addTo(map);
 
 </script>
-{% for js in site.js-baseurl %}
-<script type="text/javascript" src="{{ js }}"></script>
-{% endfor %}

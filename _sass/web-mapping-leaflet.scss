@@ -7,7 +7,7 @@ html, body, #container {
 }
 
 body {
-  padding-top: 55px;
+  padding-top: 70px;
 }
 
 #map {
@@ -29,11 +29,11 @@ p, ul, ol, pre, blockquote {
 }
 
 .navbar-light .bg-light {
-    background-color: $background-color !important;
+    background-color: $background-color;
 }
 
 .footer {
-  background-color: $background-color !important;;
+  background-color: $background-color;
 }
 
 .footer > .container {
@@ -44,3 +44,12 @@ p, ul, ol, pre, blockquote {
 .footer p {
   font-size: 11px;
 }
+
+.pb-3, .py-3 {
+
+}
+
+@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css";
+@import "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css";
+@import "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css";
+@import "https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/MarkerCluster.css";

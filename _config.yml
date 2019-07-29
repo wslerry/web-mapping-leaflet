@@ -14,22 +14,21 @@ plugins:
   - jekyll-seo-tag
   - jekyll-include-cache
 
-exclude : [
-  "Gemfile",
-  "Gemfile.lock",
-  "README.md",
-  "LICENSE.txt",
-  web-mapping-leaflet.gemspec,
-  ]
+# exclude : [
+#   "Gemfile",
+#   "Gemfile.lock",
+#   "README.md",
+#   "LICENSE.txt",
+#   "web-mapping-leaflet.gemspec",
+#   ]
 
 css-baseurl:
   - "/assets/css/main.css"
-  - "/assets/vendor/bootstrap/css/bootstrap.min.css"
-  - "/assets/vendor/favicon/css/all.min.css"
-  - "/assets/vendor/leaflet/leaflet.css"
 
 js-baseurl:
-  - "/assets/vendor/leaflet/leaflet.js"
-  - "/assets/vendor/jquery/jquery.slim.min.js"
-  - "/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"
-  - "/assets/vendor/favicon/js/all.min.js"
+  - "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
+  - "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+  - "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+  - "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/js/all.min.js"
+  - "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.js"
+  - "https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/leaflet.markercluster-src.js"
