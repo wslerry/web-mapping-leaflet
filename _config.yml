@@ -4,7 +4,7 @@ email:
 description: >- # this means to ignore newlines until "baseurl:"
   A template for web-mapping website build in Jekyll + leaflet
 baseurl: ""
-url: ""
+url: "https://lerryws.xyz/web-mapping-leaflet/"
 
 markdown: kramdown
 
