@@ -7,16 +7,48 @@
   });
 
   var coords = [0, 0]; // the geographic center of our map
-  var zoomLevel = 2; // the map scale
-  var map = L.map('map', {
-    center: coords,
-    zoom: zoomLevel,
-    layers: OSM
+  var zoomLevel = 3; // the map scale
+  // var map = L.map('map', {
+  //   center: coords,
+  //   zoom: zoomLevel,
+  //   layers: OSM
+  // });
+
+  var map = L.map('map',{layers: OSM}).setView(coords, zoomLevel);
+
+  //Styles
+  var geojsonMarkerOptions = {
+      radius: 8,
+      fillColor: "#ff7800",
+      color: "#000",
+      weight: 1,
+      opacity: 1,
+      fillOpacity: 0.8
+  };
+
+  var markerClusters = L.markerClusterGroup();
+
+  var mydata= L.geoJson(null, {
+      // pointToLayer: function (feature, latlng) {
+      //     return L.circleMarker(latlng, geojsonMarkerOptions);
+      // },
+
+      onEachFeature: function (feature, layer) {
+          var popupcontent = [];
+          for (var prop in feature.properties) {
+              popupcontent.push(prop + ": " + feature.properties[prop]);
+          }
+          layer.bindPopup(popupcontent.join("<br />"));
+          markerClusters.addLayer( layer )
+      } //end onEachFeature
+
   });
 
-  var mydata= L.geoJson(null);
 
-  $.getJSON("/assets/cities.geojson", function(data){mydata.addData(data);});
+  $.getJSON("assets/cities.geojson", function (data) {
+    mydata.addData(data);
+  });
+
 
   // load basemap
   var baseMaps = {
@@ -25,9 +57,12 @@
 
   // load overlay
   var overlay = {
-    "Cities": mydata,
+    "Cities": markerClusters,
   };
 
-L.control.layers(baseMaps, overlay, {collapsed: true}).addTo(map);
+
+  // markerClusters.addLayer( mydata );
+
+  L.control.layers(baseMaps, overlay, {collapsed: true}).addTo(map);
 
 </script>

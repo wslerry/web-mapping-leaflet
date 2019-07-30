@@ -4,7 +4,7 @@ email:
 description: >- # this means to ignore newlines until "baseurl:"
   A template for web-mapping website build in Jekyll + leaflet
 baseurl: ""
-url: "https://lerryws.xyz/web-mapping-leaflet/"
+url: "https://lerryws.xyz/web-mapping-leaflet/" # change this to your url
 
 markdown: kramdown
 
@@ -30,4 +30,4 @@ js-baseurl:
   - "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
   - "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/js/all.min.js"
   - "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.js"
-  - "https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/leaflet.markercluster-src.js"
+  - "https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/leaflet.markercluster.js"
