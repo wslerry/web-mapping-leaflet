@@ -26,7 +26,7 @@
       fillOpacity: 0.8
   };
 
-  var markerClusters = L.markerClusterGroup();
+  var markerClusters = L.markerClusterGroup({showCoverageOnHover: false});
 
   var mydata= L.geoJson(null, {
       // pointToLayer: function (feature, latlng) {
@@ -36,9 +36,9 @@
       onEachFeature: function (feature, layer) {
           var popupcontent = [];
           for (var prop in feature.properties) {
-              popupcontent.push(prop + ": " + feature.properties[prop]);
+              popupcontent.push("<table class='table table-striped table-bordered table-condensed'>" + "<tr><th>" + prop + "</th><td>"+ feature.properties[prop] + "</td></tr>" + "<table>");
           }
-          layer.bindPopup(popupcontent.join("<br />"));
+          layer.bindPopup(popupcontent.join("<hr />"));
           markerClusters.addLayer( layer )
       } //end onEachFeature
 
