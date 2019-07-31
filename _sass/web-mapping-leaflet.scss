@@ -3,8 +3,11 @@
 @import "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css";
 @import "https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/MarkerCluster.css";
 @import "https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/MarkerCluster.Default.css";
+@import "https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css";
+@import "https://marslan390.github.io/BeautifyMarker/leaflet-beautify-marker-icon.css";
 
 $background-color : #f8f9fa ;
+// $assetPath : "images";
 
 html, body, #container {
   height: 100%;
@@ -61,72 +64,71 @@ p, ul, ol, pre, blockquote {
   font-size: 11px;
 }
 
-/* Leaflet fullscreen */
-$assetPath : "images";
+// /* Leaflet fullscreen */
+//
+// .leaflet-control-fullscreen a {
+//   background: #fff url(#{$assetPath}/fullscreen.png) no-repeat 0 0;
+//   background-size: 26px 52px;
+// }
+//
+// .leaflet-touch .leaflet-control-fullscreen a {
+//   background-position: 2px 2px;
+// }
+//
+// .leaflet-fullscreen-on .leaflet-control-fullscreen a {
+//   background-position: 0 -26px;
+// }
+//
+// .leaflet-touch.leaflet-fullscreen-on .leaflet-control-fullscreen a {
+//   background-position: 2px -24px;
+// }
+//
+// /* Do not combine these two rules; IE will break. */
+//
+// .leaflet-container {
+//   &:-webkit-full-screen, &.leaflet-fullscreen-on {
+//     width: 100% !important;
+//     height: 100% !important;
+//   }
+// }
+//
+// .leaflet-pseudo-fullscreen {
+//   position: fixed !important;
+//   width: 100% !important;
+//   height: 100% !important;
+//   top: 0 !important;
+//   left: 0 !important;
+//   z-index: 99999;
+// }
+//
+// @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+//   .leaflet-control-fullscreen a {
+//     background-image: url(#{$assetPath}/fullscreen@2x.png);
+//   }
+// }
 
-.leaflet-control-fullscreen a {
-  background: #fff url(#{$assetPath}/fullscreen.png) no-repeat 0 0;
-  background-size: 26px 52px;
-}
-
-.leaflet-touch .leaflet-control-fullscreen a {
-  background-position: 2px 2px;
-}
-
-.leaflet-fullscreen-on .leaflet-control-fullscreen a {
-  background-position: 0 -26px;
-}
-
-.leaflet-touch.leaflet-fullscreen-on .leaflet-control-fullscreen a {
-  background-position: 2px -24px;
-}
-
-/* Do not combine these two rules; IE will break. */
-
-.leaflet-container {
-  &:-webkit-full-screen, &.leaflet-fullscreen-on {
-    width: 100% !important;
-    height: 100% !important;
-  }
-}
-
-.leaflet-pseudo-fullscreen {
-  position: fixed !important;
-  width: 100% !important;
-  height: 100% !important;
-  top: 0 !important;
-  left: 0 !important;
-  z-index: 99999;
-}
-
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-  .leaflet-control-fullscreen a {
-    background-image: url(#{$assetPath}/fullscreen@2x.png);
-  }
-}
-
-// Beautify Marker
-.beautify-marker {
-  text-align: center;
-  font-weight: 700;
-  font-family: monospace;
-  position: absolute;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  &.circle, &.circle-dot, &.doughnut {
-    border-radius: 100%;
-  }
-  &.marker {
-    border-top-left-radius: 50%;
-    border-top-right-radius: 50% 100%;
-    border-bottom-left-radius: 100% 50%;
-    border-bottom-right-radius: 0%;
-    /* rotating 45deg clockwise to get the corner bottom center */
-    transform: rotate(45deg);
-    > * {
-      /* rotating 45deg counterclock to adjust marker content back to normal */
-      transform: rotate(-45deg);
-    }
-  }
-}
+// // Beautify Marker
+// .beautify-marker {
+//   text-align: center;
+//   font-weight: 700;
+//   font-family: monospace;
+//   position: absolute;
+//   -webkit-box-sizing: border-box;
+//   -moz-box-sizing: border-box;
+//   box-sizing: border-box;
+//   &.circle, &.circle-dot, &.doughnut {
+//     border-radius: 100%;
+//   }
+//   &.marker {
+//     border-top-left-radius: 50%;
+//     border-top-right-radius: 50% 100%;
+//     border-bottom-left-radius: 100% 50%;
+//     border-bottom-right-radius: 0%;
+//     /* rotating 45deg clockwise to get the corner bottom center */
+//     transform: rotate(45deg);
+//     > * {
+//       /* rotating 45deg counterclock to adjust marker content back to normal */
+//       transform: rotate(-45deg);
+//     }
+//   }
+// }
