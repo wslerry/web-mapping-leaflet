@@ -31,3 +31,4 @@ js-baseurl:
   - "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/js/all.min.js"
   - "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.js"
   - "https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/leaflet.markercluster.js"
+  - "/assets/js/Leaflet.fullscreen.min.js"

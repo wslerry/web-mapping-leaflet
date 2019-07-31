@@ -6,63 +6,118 @@
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
   });
 
-  var coords = [0, 0]; // the geographic center of our map
-  var zoomLevel = 3; // the map scale
-  // var map = L.map('map', {
-  //   center: coords,
-  //   zoom: zoomLevel,
-  //   layers: OSM
-  // });
+  {% for map in site.data.map_config.param %}
+  var coords = [{{ map.lat }}, {{ map.long }}]; // the geographic center of our map
+  var zoomLevel = {{ map.zoom }}; // the map scale
 
-  var map = L.map('map',{layers: OSM}).setView(coords, zoomLevel);
-
-  //Styles
-  var geojsonMarkerOptions = {
-      radius: 8,
-      fillColor: "#ff7800",
-      color: "#000",
-      weight: 1,
-      opacity: 1,
-      fillOpacity: 0.8
-  };
-
-  var markerClusters = L.markerClusterGroup({showCoverageOnHover: false});
-
-  var mydata= L.geoJson(null, {
-      // pointToLayer: function (feature, latlng) {
-      //     return L.circleMarker(latlng, geojsonMarkerOptions);
-      // },
-
-      onEachFeature: function (feature, layer) {
-          var popupcontent = [];
-          for (var prop in feature.properties) {
-              popupcontent.push("<table class='table table-striped table-bordered table-condensed'>" + "<tr><th>" + prop + "</th><td>"+ feature.properties[prop] + "</td></tr>" + "<table>");
-          }
-          layer.bindPopup(popupcontent.join("<hr />"));
-          markerClusters.addLayer( layer )
-      } //end onEachFeature
-
+  var map = L.map('map', {
+    center: coords,
+    zoom: zoomLevel,
+    maxZoom: {{ map.maxZoom }},
+    minZoom: {{ map.minZoom }},
+    layers: OSM
   });
-
-
-  $.getJSON("assets/cities.geojson", function (data) {
-    mydata.addData(data);
-  });
-
+  {% endfor %}
 
   // load basemap
   var baseMaps = {
     "OpenStreetMap": OSM,
   };
 
+  // configuration for point data
+  {% for i in site.data.map_data.geojson.point %}
+  var {{i.name}}Style = {
+      radius: {{ i.radius }},
+      fillColor: "{{ i.fillColor }}",
+      color: "{{ i.color }}",
+      weight: {{ i.weight }},
+      opacity: {{ i.opacity }},
+      fillOpacity: {{ i.fillOpacity }}
+  };
+  {% endfor %}
+
+  {% for i in site.data.map_data.geojson.point %}
+  var {{i.name}}_markerClusters = L.markerClusterGroup({showCoverageOnHover: false});
+  var {{i.name}}= L.geoJson(null, {
+      pointToLayer: function (feature, latlng) {
+          return L.circleMarker(latlng, {{i.name}}Style);
+      },
+      onEachFeature: function (feature, layer) {
+          var popupcontent = [];
+          for (var prop in feature.properties) {
+              popupcontent.push("<table class='table table-striped table-bordered table-condensed'>" + "<tr><th>" + prop + "</th><td>"+ feature.properties[prop] + "</td></tr>" + "<table>");
+          }
+          layer.bindPopup(popupcontent.join("<hr />"));
+          {{i.name}}_markerClusters.addLayer( layer )
+      } //end onEachFeature
+
+  });
+  $.getJSON("{{ i.url }}", function (data) {
+    {{i.name}}.addData(data);
+  });
+  {% endfor %}
+
+  // configuration for line data
+  {% for i in site.data.map_data.geojson.line %}
+  var {{i.name}}= L.geoJson(null, {
+      style: function (feature) {
+          return {
+            color: "{{ i.color }}",
+            weight: {{ i.weight }},
+            dashArray: "{{ i.dashArray }}",
+            opacity: {{ i.opacity }},
+          };
+      },
+      onEachFeature: function (feature, layer) {
+          var popupcontent = [];
+          for (var prop in feature.properties) {
+              popupcontent.push("<table class='table table-striped table-bordered table-condensed'>" + "<tr><th>" + prop + "</th><td>"+ feature.properties[prop] + "</td></tr>" + "<table>");
+          }
+          layer.bindPopup(popupcontent.join("<hr />"));
+      } //end onEachFeature
+
+  });
+  $.getJSON("{{ i.url }}", function (data) {
+    {{i.name}}.addData(data);
+  });
+  {% endfor %}
+
+  // configuration for polygon data
+  {% for i in site.data.map_data.geojson.area %}
+  var {{i.name}}= L.geoJson(null, {
+      pointToLayer: function (feature, latlng) {
+          return L.circleMarker(latlng, {{i.name}}Style);
+      },
+      onEachFeature: function (feature, layer) {
+          var popupcontent = [];
+          for (var prop in feature.properties) {
+              popupcontent.push("<table class='table table-striped table-bordered table-condensed'>" + "<tr><th>" + prop + "</th><td>"+ feature.properties[prop] + "</td></tr>" + "<table>");
+          }
+          layer.bindPopup(popupcontent.join("<hr />"));
+      } //end onEachFeature
+
+  });
+  $.getJSON("{{ i.url }}", function (data) {
+    {{i.name}}.addData(data);
+  });
+  {% endfor %}
+
   // load overlay
   var overlay = {
-    "Cities": markerClusters,
+    {% for i in site.data.map_data.geojson.point %}
+    "{{i.name}}": {{i.name}}_markerClusters,
+    {% endfor %}
+    {% for i in site.data.map_data.geojson.line %}
+    "{{i.name}}": {{i.name}},
+    {% endfor %}
+    {% for i in site.data.map_data.geojson.area %}
+    "{{i.name}}": {{i.name}},
+    {% endfor %}
   };
 
-
-  // markerClusters.addLayer( mydata );
-
   L.control.layers(baseMaps, overlay, {collapsed: true}).addTo(map);
+
+  map.addControl(new L.Control.Fullscreen());
+
 
 </script>

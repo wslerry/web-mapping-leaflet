@@ -1,0 +1,39 @@
+geojson:
+  point:
+    -
+      name: "Cities"
+      url: "assets/cities.geojson"
+      icon: false
+      iconURL: "assets/icons/icon.png"
+      radius: 6
+      fillColor: "#9817f2"
+      color: "#be85ff"
+      weight: 5
+      opacity: 0.7
+      fillOpacity: 1
+
+    -
+      name: "Random"
+      url: "assets/random.geojson"
+      icon: false
+      iconURL: "assets/icons/icon.png"
+      radius: 6
+      fillColor: "#f26617"
+      color: "#ffa985"
+      weight: 5
+      opacity: 0.7
+      fillOpacity: 1
+
+  line: # uncomment this if polyline json is available
+    -
+      name: "Line"
+      url: "assets/polyline.geojson"
+      color: "#ff0000"
+      weight: 2
+      dashArray: "30 10"
+      opacity: 1
+
+  area:
+    -
+      name: "Countries"
+      url: "assets/countries.geojson"

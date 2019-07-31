@@ -1,0 +1,11 @@
+param:
+  -
+    lat: 0
+    long: 0
+    zoom: 3
+    minZoom: 2 #minimum zoom level
+    maxZoom: 18 #maximum zoom level
+    x1:  #longitude lower left
+    y1:  #latitude lower left
+    x2:  #longitude upper right
+    y2:  #latitude upper right
