@@ -12,7 +12,7 @@ geojson:
       opacity: 0.7
       fillOpacity: 1
       icontype: "city" # refer to font-awesome icons for icon of your interest
-      iconShape: "circle" # circle / marker
+      iconShape: "marker" # circle / marker
       borderColor: "#f46118"
       textColor: "#f46118"
 
