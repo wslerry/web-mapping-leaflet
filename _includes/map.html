@@ -26,21 +26,41 @@
 
   // configuration for point data
   {% for i in site.data.map_data.geojson.point %}
-  var {{i.name}}Style = {
-      radius: {{ i.radius }},
-      fillColor: "{{ i.fillColor }}",
-      color: "{{ i.color }}",
-      weight: {{ i.weight }},
-      opacity: {{ i.opacity }},
-      fillOpacity: {{ i.fillOpacity }}
-  };
+
+    {% if i.createIcon == false %}
+      var {{i.name}}Style = {
+        radius: {{ i.radius }},
+        fillColor: "{{ i.fillColor }}",
+        color: "{{ i.color }}",
+        weight: {{ i.weight }},
+        opacity: {{ i.opacity }},
+        fillOpacity: {{ i.fillOpacity }}
+      };
+    {% else i.createIcon == true %}
+      var {{i.name}}Style = {
+        icon: '{{ i.icontype }}',
+        iconShape: '{{ i.iconShape }}',
+        borderColor: '{{ i.borderColor }}',
+        textColor: '{{ i.textColor }}',
+        innerIconStyle: 'font-size:11px;padding-top:1px;'
+      };
+
+      var {{i.name}}Beautify = L.BeautifyIcon.icon( {{i.name}}Style );
+    {% endif %}
+
   {% endfor %}
 
   {% for i in site.data.map_data.geojson.point %}
   var {{i.name}}_markerClusters = L.markerClusterGroup({showCoverageOnHover: false});
   var {{i.name}}= L.geoJson(null, {
       pointToLayer: function (feature, latlng) {
-          return L.circleMarker(latlng, {{i.name}}Style);
+          {% if i.createIcon == false %}
+          return L.circleMarker(latlng, {{ i.name }}Style);
+          {% else i.createIcon == true %}
+          return L.marker(latlng, {
+            icon: {{i.name}}Beautify
+          });
+          {% endif %}
       },
       onEachFeature: function (feature, layer) {
           var popupcontent = [];
