@@ -35,3 +35,4 @@ js-baseurl:
   - "https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/leaflet.markercluster.js"
   - "https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js"
   - "https://marslan390.github.io/BeautifyMarker/leaflet-beautify-marker-icon.js"
+  - "https://raw.githubusercontent.com/timwis/leaflet-choropleth/gh-pages/src/choropleth.js"
