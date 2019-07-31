@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name          = "web-mapping-leaflet"
-  spec.version       = "0.1.0"
+  spec.version       = "0.1.1"
   spec.authors       = ["wslerry"]
   spec.email         = ["ghostspell89@yahoo.com"]
 

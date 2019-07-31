@@ -8,6 +8,8 @@ url: "https://lerryws.xyz/web-mapping-leaflet/" # change this to your url
 
 markdown: kramdown
 
+theme: web-mapping-leaflet
+
 plugins:
   - jekyll-feed
   - jekyll-seo-tag

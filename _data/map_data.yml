@@ -24,13 +24,13 @@ geojson:
       opacity: 0.7
       fillOpacity: 1
 
-  line: # uncomment this if polyline json is available
+  line:
     -
       name: "Line"
       url: "assets/polyline.geojson"
       color: "#ff0000"
       weight: 2
-      dashArray: "30 10"
+      dashArray: "2 5 5"
       opacity: 1
 
   area:
