@@ -42,7 +42,7 @@
         iconShape: '{{ i.iconShape }}',
         borderColor: '{{ i.borderColor }}',
         textColor: '{{ i.textColor }}',
-        innerIconStyle: 'font-size:11px;padding-top:1px;'
+        innerIconStyle: 'font-size:10px;padding-top:1px;'
       };
 
       var {{i.name}}Beautify = L.BeautifyIcon.icon( {{i.name}}Style );
@@ -103,11 +103,28 @@
   {% endfor %}
 
   // configuration for polygon data
+  function getColor(d) {
+    return d > 16000 ? '#800026' :
+    d > 14000  ? '#BD0026' :
+    d > 12000  ? '#E31A1C' :
+    d > 10000  ? '#FC4E2A' :
+    d > 8000   ? '#FD8D3C' :
+    d > 6000   ? '#FEB24C' :
+    d > 4000   ? '#FED976' :
+               '#FFEDA0';
+  }
   {% for i in site.data.map_data.geojson.area %}
   var {{i.name}}= L.geoJson(null, {
-      pointToLayer: function (feature, latlng) {
-          return L.circleMarker(latlng, {{i.name}}Style);
-      },
+    style: function (feature) {
+        return {
+          fillColor: getColor(feature.properties.{{i.featID}}),
+          weight: {{i.weight}},
+          opacity: {{i.opacity}},
+          color: "{{i.color}}",
+          dashArray: {{i.dashArray}},
+          fillOpacity: {{i.fillOpacity}}
+        };
+    },
       onEachFeature: function (feature, layer) {
           var popupcontent = [];
           for (var prop in feature.properties) {

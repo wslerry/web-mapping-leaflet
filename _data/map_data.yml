@@ -11,7 +11,8 @@ geojson:
       weight: 5
       opacity: 0.7
       fillOpacity: 1
-      icontype: "city" # refer to font-awesome icons for icon of your interest
+      # icon setting
+      icontype: "leaf" # refer to font-awesome icons for icon of your interest
       iconShape: "marker" # circle / marker
       borderColor: "#f46118"
       textColor: "#f46118"
@@ -27,6 +28,7 @@ geojson:
       weight: 5
       opacity: 0.7
       fillOpacity: 1
+      # Icon setting
       icontype: "leaf" # refer to font-awesome icons for icon of your interest
       iconShape: "marker" # circle / marker
       borderColor: "#f9ae89"
@@ -38,10 +40,16 @@ geojson:
       url: "assets/polyline.geojson"
       color: "#ff0000"
       weight: 2
-      dashArray: "2 5 5"
+      dashArray: "3"
       opacity: 1
 
   area:
     -
       name: "Countries"
-      url: "assets/countries.geojson"
+      url: "assets/countries_dummy.geojson"
+      featID: "pop"
+      weight: 2
+      opacity: 0.7
+      color: "#ffffff"
+      dashArray: "3"
+      fillOpacity: 0.8
