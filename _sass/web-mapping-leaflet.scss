@@ -33,6 +33,11 @@ p, ul, ol, pre, blockquote {
   margin-bottom: 1em;
 }
 
+// .navbar {
+//   padding: inherit;
+//   overflow: hidden;
+// }
+
 .navbar .navbar-light {
  max-height: 50px;
 }
@@ -41,14 +46,21 @@ p, ul, ol, pre, blockquote {
   font-size: 15px !important;
 }
 
-
 .navbar-light .navbar-brand {
+  padding-right: 10px;
+  padding-left: 10px;
   font-weight: bold;
   text-transform: uppercase;
 }
 
 .navbar-light .bg-light {
   background-color: $background-color;
+}
+
+@media (max-width: 768px) {
+  .navbar .navbar-brand{
+    font-size: 0;
+  }
 }
 
 .footer {
