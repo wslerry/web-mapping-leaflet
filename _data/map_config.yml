@@ -1,8 +1,8 @@
 param:
   -
-    lat: 0
-    long: 0
-    zoom: 3
+    lat: -0.857
+    long: 113.643
+    zoom: 5
     minZoom: 2 #minimum zoom level
     maxZoom: 18 #maximum zoom level
     x1:  #longitude lower left

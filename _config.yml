@@ -1,5 +1,5 @@
 title: web-mapping-leaflet
-author: Lerry W.S # change this to your name
+author: Lerry William # change this to your name
 email:
 description: >- # this means to ignore newlines until "baseurl:"
   A template for web-mapping website build in Jekyll + leaflet
@@ -25,6 +25,7 @@ plugins:
 
 css-baseurl:
   - "/assets/css/main.css"
+  - "https://cdn.jsdelivr.net/gh/wslerry/BeautifyMarker/leaflet-beautify-marker-icon.css"
 
 js-baseurl:
   - "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
@@ -34,5 +35,5 @@ js-baseurl:
   - "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.js"
   - "https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/leaflet.markercluster.js"
   - "https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js"
-  - "https://marslan390.github.io/BeautifyMarker/leaflet-beautify-marker-icon.js"
+  - "https://cdn.jsdelivr.net/gh/wslerry/BeautifyMarker/leaflet-beautify-marker-icon.js"
   - "https://raw.githubusercontent.com/timwis/leaflet-choropleth/gh-pages/src/choropleth.js"
