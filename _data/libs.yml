@@ -1,0 +1,15 @@
+css-baseurl:
+  - "/assets/css/main.css"
+  - "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+  - "https://cdn.jsdelivr.net/gh/wslerry/BeautifyMarker/leaflet-beautify-marker-icon.css"
+
+js-baseurl:
+  - "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
+  - "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+  - "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+  - "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/all.min.js"
+  - "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.js"
+  - "https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/leaflet.markercluster.js"
+  - "https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js"
+  - "https://cdn.jsdelivr.net/gh/wslerry/BeautifyMarker/leaflet-beautify-marker-icon.js"
+  - "https://raw.githubusercontent.com/timwis/leaflet-choropleth/gh-pages/src/choropleth.js"

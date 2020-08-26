@@ -57,6 +57,15 @@ p, ul, ol, pre, blockquote {
   background-color: $background-color;
 }
 
+@media (min-width: 768px) {
+  .navbar img{
+    display: none;
+  }
+  .navbar .fa{
+    display: none;
+  }
+}
+
 @media (max-width: 768px) {
   .navbar .navbar-brand{
     font-size: 0;
@@ -80,7 +89,7 @@ p, ul, ol, pre, blockquote {
 // .beautify-marker {
 //   text-align: center;
 //   font-weight: 700;
-//   font-family: monospace;
+//   font-family: sans-serif;
 //   position: absolute;
 //   -webkit-box-sizing: border-box;
 //   -moz-box-sizing: border-box;
@@ -102,7 +111,7 @@ p, ul, ol, pre, blockquote {
 //   }
 // }
 
-// Leaflet
+//* Leaflet *//
 
 .leaflet-top .leaflet-control {
     margin-top: 24px;

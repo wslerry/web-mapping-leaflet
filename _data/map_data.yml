@@ -3,16 +3,16 @@ geojson:
     -
       name: "Cities"
       url: "assets/cities.geojson"
-      createIcon: true
-      iconURL: "assets/icons/icon.png"
-      radius: 6
+      createIcon: false
+      iconURL:
+      radius: 10
       fillColor: "#9817f2"
       color: "#be85ff"
       weight: 5
       opacity: 0.7
       fillOpacity: 1
       # icon setting
-      icontype: "building" # refer to font-awesome icons for icon of your interest
+      icontype: "virus" # refer to font-awesome icons for icon of your interest
       iconShape: "marker" # circle / marker
       borderColor: "#f46118"
       textColor: "#f46118"
@@ -21,7 +21,7 @@ geojson:
       name: "Random"
       url: "assets/random.geojson"
       createIcon: false
-      iconURL: "assets/icons/icon.png"
+      iconURL:
       radius: 6
       fillColor: "#f26617"
       color: "#ffa985"
@@ -40,14 +40,14 @@ geojson:
       url: "assets/polyline.geojson"
       color: "#ff0000"
       weight: 2
-      dashArray: "3"
+      dashArray: "10"
       opacity: 1
 
   area:
     -
       name: "Countries"
       url: "assets/countries_dummy.geojson"
-      featID: "pop"
+      featID: 'pop'
       weight: 2
       opacity: 0.7
       color: "#ffffff"

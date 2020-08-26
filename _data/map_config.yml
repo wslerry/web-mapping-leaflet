@@ -1,11 +1,12 @@
+map_bound: false
 param:
   -
-    lat: -0.857
-    long: 113.643
-    zoom: 5
+    lat: 1 #centre
+    long: 114 #centre
+    zoom: 2
     minZoom: 2 #minimum zoom level
     maxZoom: 18 #maximum zoom level
-    x1:  #longitude lower left
-    y1:  #latitude lower left
-    x2:  #longitude upper right
-    y2:  #latitude upper right
+    x1: 108.99437294 #longitude lower left
+    y1: -0.04073073 #latitude lower left
+    x2: 115.89948784 #longitude upper right
+    y2: 5.75707846 #latitude upper right

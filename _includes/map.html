@@ -2,26 +2,66 @@
   <div id="map"></div>
 </div>
 <script>
-  var OSM = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  // var OSM = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
+  //   attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  // });
+
+  {% for map in site.data.map_source.base %}
+  var {{% if map.id %}}{{ map.id }} =  {% if map.format %}{{ map.format }}{% endif %}('{% if map.url %}{{ map.url }}{% endif %}',{
+    attribution: 'Developed by <a href="https://lerryws.xyz/">wslerry</a> | {% if map.attribution %}{{ map.attribution }}{% endif %}'
   });
+  {% endfor %}
+
+  {% for map in site.data.map_source.overlay %}
+    var {{% if map.id %}}{{ map.id }} =  {% if map.format %}{{ map.format }}{% endif %}('{% if map.url %}{{ map.url }}{% endif %}',{
+      attribution: 'Developed by <a href="https://lerryws.xyz/">wslerry</a> | {% if map.attribution %}{{ map.attribution }}{% endif %}'
+    });
+  {% endfor %}
+
+  {% if site.data.map_config.map_bound == true %}
+    {% for map in site.data.map_config.param %}
+      var corner1  = L.latLng({{ map.y1 }}, {{ map.x1 }}),
+      corner2  = L.latLng({{ map.y2 }}, {{ map.x2 }});
+      var bounds = L.latLngBounds(corner1, corner2);
+    {% endfor %}
+  {% endif %}
 
   {% for map in site.data.map_config.param %}
   var coords = [{{ map.lat }}, {{ map.long }}]; // the geographic center of our map
   var zoomLevel = {{ map.zoom }}; // the map scale
-
-  var map = L.map('map', {
-    center: coords,
-    zoom: zoomLevel,
-    maxZoom: {{ map.maxZoom }},
-    minZoom: {{ map.minZoom }},
-    layers: OSM
-  });
   {% endfor %}
+
+  {% if site.data.map_config.map_bound == true %}
+    {% for map in site.data.map_config.param %}
+      var map = L.map('map', {
+        maxBounds: bounds,
+        center: coords,
+        zoom: zoomLevel,
+        maxZoom: {{ map.maxZoom }},
+        minZoom: {{ map.minZoom }},
+        layers: [{% for map in site.data.map_source.base %}{% if map.select == true %}{{map.id}}{% endif %}{% endfor %},
+            {% for map in site.data.map_source.overlay %}{% if map.select == true %}{{map.id}}{% endif %}{% endfor %}]
+      });
+    {% endfor %}
+  {% else %}
+    {% for map in site.data.map_config.param %}
+      var map = L.map('map', {
+        center: coords,
+        zoom: zoomLevel,
+        maxZoom: {{ map.maxZoom }},
+        minZoom: {{ map.minZoom }},
+        layers: [{% for map in site.data.map_source.base %}{% if map.select == true %}{{map.id}}{% endif %}{% endfor %},
+            {% for map in site.data.map_source.overlay %}{% if map.select == true %}{{map.id}}{% endif %}{% endfor %}]
+      });
+    {% endfor %}
+  {% endif %}
+
 
   // load basemap
   var baseMaps = {
-    "OpenStreetMap": OSM,
+    {% for map in site.data.map_source.base %}
+    "{% if map.name %}{{ map.name }}{% endif %}": {% if map.id %}{{ map.id }}{% endif %},
+    {% endfor %}
   };
 
   // configuration for point data
@@ -113,11 +153,28 @@
     d > 4000   ? '#FED976' :
                '#FFEDA0';
   }
+
+  // // configuration for polygon data
+  // function getColor(d) {
+  //   // d should be between 0 and 1
+  //   //
+  //   // 6 scale blues
+  //   var blue = ['rgb(239,243,255)',
+  //       'rgb(198,219,239)',
+  //       'rgb(158,202,225)',
+  //       'rgb(107,174,214)',
+  //       'rgb(49,130,189)',
+  //       'rgb(8,81,156)'
+  //       ];
+  //
+  //   return blue[Math.round(d*6)];
+  // }
+
   {% for i in site.data.map_data.geojson.area %}
   var {{i.name}}= L.geoJson(null, {
     style: function (feature) {
         return {
-          fillColor: getColor(feature.properties.{{i.featID}}),
+          fillColor: getColor(feature.properties['{{i.featID}}']),
           weight: {{i.weight}},
           opacity: {{i.opacity}},
           color: "{{i.color}}",
@@ -141,6 +198,10 @@
 
   // load overlay
   var overlay = {
+    {% for map in site.data.map_source.overlay %}
+      "{% if map.name %}{{ map.name }}{% endif %}": {% if map.id %}{{ map.id }}{% endif %},
+    {% endfor %}
+
     {% for i in site.data.map_data.geojson.point %}
     "{{i.name}}": {{i.name}}_markerClusters,
     {% endfor %}
