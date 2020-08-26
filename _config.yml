@@ -15,13 +15,13 @@ plugins:
   - jekyll-seo-tag
   - jekyll-include-cache
 
-# exclude : [
-#   "Gemfile",
-#   "Gemfile.lock",
-#   "README.md",
-#   "LICENSE.txt",
-#   "web-mapping-leaflet.gemspec",
-#   ]
+exclude : [
+  "Gemfile",
+  "Gemfile.lock",
+  "README.md",
+  "LICENSE.txt",
+  "web-mapping-leaflet.gemspec",
+  ]
 
 css-baseurl:
   - "/assets/css/main.css"

@@ -1,6 +1,4 @@
 ---
 layout: page
-permalink: 
+permalink:
 ---
-
-{% include_cached map.html %}

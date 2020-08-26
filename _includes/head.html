@@ -15,7 +15,7 @@
   {% endfor %}
 
   {% for js in site.js-baseurl %}
-  <script type="text/javascript" src="{{ js }}"></script>
+  <script type="text/javascript" src="{{ js | absolute_url }}"></script>
   {% endfor %}
 
 </head>
