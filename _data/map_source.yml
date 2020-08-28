@@ -36,7 +36,7 @@ base:
     url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}'
     attribution: 'Powered by &copy; <a href="https://www.esri.com/en-us/legal/copyright-trademarks">ESRI</a>'
 
-# Add overlay layer maps (web tiles)
+# Add overlay layer maps (web tiles or your own map tiles data!)
 overlay:
   # -
   #   select: false
