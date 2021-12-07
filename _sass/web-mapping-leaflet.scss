@@ -22,7 +22,7 @@ body {
 .content {
   max-width: 500px;
   margin: auto;
-  // padding: 10px;
+  padding: 10px;
 }
 
 #map {
@@ -63,7 +63,7 @@ p, ul, ol, pre, blockquote {
   background-color: $background-color;
 }
 
-@media only screen and (min-device-width: 768px) {
+@media (min-width: 768px) {
   .navbar img{
     display: none;
   }
@@ -81,7 +81,7 @@ p, ul, ol, pre, blockquote {
 //   }
 // }
 
-@media only screen and (max-device-width: 767px) {
+@media (max-width: 767px) {
   .navbar .navbar-brand{
     font-size: 0;
   }

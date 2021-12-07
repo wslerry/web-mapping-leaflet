@@ -1,6 +1,7 @@
 title: Jekylleaf # Web Mapping Jekyll & Leaflet
 author: Lerry William # change this to your name
 email:
+icon: assets/icons/jekylleaf.png
 description: >- # this means to ignore newlines until "baseurl:"
   A template for web-mapping website build in Jekyll + leaflet
 baseurl: "/web-mapping-leaflet"
