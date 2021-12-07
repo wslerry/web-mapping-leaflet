@@ -9,7 +9,7 @@
       </div>
       <div class="modal-body">
         {{ site.data.about.description | markdownify }}
-        <a href="{{ site.data.about.permalink }}">Instructions</a>
+        <a href="{{site.url}}{{ site.data.about.permalink }}">Instructions</a>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
