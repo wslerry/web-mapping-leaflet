@@ -19,6 +19,12 @@ body {
   padding-top: 50px;
 }
 
+.content {
+  max-width: 500px;
+  margin: auto;
+  // padding: 10px;
+}
+
 #map {
   // padding-top: 80px;
   width: inherit;
@@ -57,7 +63,7 @@ p, ul, ol, pre, blockquote {
   background-color: $background-color;
 }
 
-@media (min-width: 768px) {
+@media only screen and (min-device-width: 768px) {
   .navbar img{
     display: none;
   }
@@ -66,7 +72,16 @@ p, ul, ol, pre, blockquote {
   }
 }
 
-@media (max-width: 768px) {
+// @media (min-width: 768px) {
+//   .navbar img{
+//     display: none;
+//   }
+//   .navbar .fa{
+//     display: none;
+//   }
+// }
+
+@media only screen and (max-device-width: 767px) {
   .navbar .navbar-brand{
     font-size: 0;
   }

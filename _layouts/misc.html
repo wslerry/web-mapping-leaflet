@@ -1,0 +1,17 @@
+<html>
+    {% include_cached head.html %}
+    <body class="d-flex flex-column h-500">
+        {% include_cached navbar.html %}
+        
+        {% include_cached about.html %}
+        {% include_cached map-legends.html %}
+        {% include_cached contact.html %}
+        <div class="content">
+            {{content}}
+        </div>
+        
+    </body>
+    {% include_cached footer.html %}
+    
+</html>
+
